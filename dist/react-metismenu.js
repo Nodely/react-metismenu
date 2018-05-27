@@ -5072,7 +5072,7 @@ var Item = function Item(_ref, _ref2) {
       _react2.default.createElement(
         'span',
         { className: classStore.classContextActions },
-        contextActions && contextActions(hasSubMenu),
+        contextActions && contextActions(hasSubMenu, to, id),
         hasSubMenu && _react2.default.createElement('i', {
           className: (0, _classnames2.default)(classStore.classStateIcon, classStore.iconNamePrefix + (subMenuVisibility ? classStore.iconNameStateVisible : classStore.iconNameStateHidden))
         })

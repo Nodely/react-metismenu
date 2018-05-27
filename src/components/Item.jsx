@@ -54,7 +54,7 @@ const Item = ({
       <i className={classnames(classStore.classIcon, classStore.iconNamePrefix + icon)} />
       {label}
       <span className={classStore.classContextActions}>
-        {contextActions && contextActions(hasSubMenu)}
+        {contextActions && contextActions(hasSubMenu, to, id)}
         {hasSubMenu && <i
           className={classnames(
             classStore.classStateIcon,
