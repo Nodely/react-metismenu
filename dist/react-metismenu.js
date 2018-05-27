@@ -1898,6 +1898,7 @@ var MetisMenu = function (_React$Component) {
     }
 
     _this.LinkComponent = props.LinkComponent;
+    _this.contextActions = props.contextActions;
 
     if (props.content) {
       _this.updateContent(props.content);
@@ -1919,6 +1920,7 @@ var MetisMenu = function (_React$Component) {
       classLinkHasActiveChild: (0, _classnames2.default)({ 'has-active-child': !props.noBuiltInClassNames }, props.classNameLinkHasActiveChild),
       classIcon: (0, _classnames2.default)({ 'metismenu-icon': !props.noBuiltInClassNames }, props.classNameIcon),
       classStateIcon: (0, _classnames2.default)({ 'metismenu-state-icon': !props.noBuiltInClassNames }, props.classNameStateIcon),
+      classContextActions: (0, _classnames2.default)({ 'metismenu-context': !props.noBuiltInClassNames }, props.classNameContextActions),
 
       iconNamePrefix: props.iconNamePrefix,
       iconNameStateHidden: props.iconNameStateHidden,
@@ -1932,7 +1934,8 @@ var MetisMenu = function (_React$Component) {
     value: function getChildContext() {
       return {
         classStore: this.classStore,
-        LinkComponent: this.LinkComponent
+        LinkComponent: this.LinkComponent,
+        contextActions: this.contextActions
       };
     }
   }, {
@@ -2042,6 +2045,7 @@ MetisMenu.defaultProps = {
   classNameLinkHasActiveChild: null,
   classNameIcon: null,
   classNameStateIcon: null,
+  classNameContextActions: null,
   iconNamePrefix: 'fa fa-',
   iconNameStateHidden: 'caret-left',
   iconNameStateVisible: 'caret-left rotate-minus-90',
@@ -2051,7 +2055,8 @@ MetisMenu.defaultProps = {
   activeLinkFromLocation: false,
   onSelected: null,
   useExternalReduxStore: null,
-  reduxStoreName: 'metisMenuStore'
+  reduxStoreName: 'metisMenuStore',
+  contextActions: null
 };
 
 MetisMenu.propTypes = {
@@ -2073,6 +2078,7 @@ MetisMenu.propTypes = {
   classNameLinkHasActiveChild: _propTypes2.default.string,
   classNameIcon: _propTypes2.default.string,
   classNameStateIcon: _propTypes2.default.string,
+  classNameContextActions: _propTypes2.default.string,
   iconNamePrefix: _propTypes2.default.string,
   iconNameStateHidden: _propTypes2.default.string,
   iconNameStateVisible: _propTypes2.default.string,
@@ -2084,12 +2090,14 @@ MetisMenu.propTypes = {
 
   onSelected: _propTypes2.default.func,
   useExternalReduxStore: _propTypes2.default.object,
-  reduxStoreName: _propTypes2.default.string
+  reduxStoreName: _propTypes2.default.string,
+  contextActions: _propTypes2.default.func
 };
 
 MetisMenu.childContextTypes = {
   classStore: _propTypes2.default.object.isRequired,
-  LinkComponent: _propTypes2.default.oneOfType([_propTypes2.default.element, _propTypes2.default.func]).isRequired
+  LinkComponent: _propTypes2.default.oneOfType([_propTypes2.default.element, _propTypes2.default.func]).isRequired,
+  contextActions: _propTypes2.default.func
 };
 
 exports.default = MetisMenu;
@@ -5014,6 +5022,7 @@ var _Container2 = _interopRequireDefault(_Container);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/* eslint-disable max-len */
 /**
  * src/components/Container.jsx
  * Author: H.Alper Tuna <halpertuna@gmail.com>
@@ -5035,7 +5044,8 @@ var Item = function Item(_ref, _ref2) {
       reduxStoreName = _ref.reduxStoreName,
       reduxUid = _ref.reduxUid;
   var classStore = _ref2.classStore,
-      LinkComponent = _ref2.LinkComponent;
+      LinkComponent = _ref2.LinkComponent,
+      contextActions = _ref2.contextActions;
   return _react2.default.createElement(
     'li',
     {
@@ -5059,9 +5069,14 @@ var Item = function Item(_ref, _ref2) {
       },
       _react2.default.createElement('i', { className: (0, _classnames2.default)(classStore.classIcon, classStore.iconNamePrefix + icon) }),
       label,
-      hasSubMenu && _react2.default.createElement('i', {
-        className: (0, _classnames2.default)(classStore.classStateIcon, classStore.iconNamePrefix + (subMenuVisibility ? classStore.iconNameStateVisible : classStore.iconNameStateHidden))
-      })
+      _react2.default.createElement(
+        'span',
+        { className: classStore.classContextActions },
+        contextActions && contextActions(hasSubMenu),
+        hasSubMenu && _react2.default.createElement('i', {
+          className: (0, _classnames2.default)(classStore.classStateIcon, classStore.iconNamePrefix + (subMenuVisibility ? classStore.iconNameStateVisible : classStore.iconNameStateHidden))
+        })
+      )
     ),
     hasSubMenu && _react2.default.createElement(_Container2.default, {
       itemId: id,
@@ -5098,7 +5113,8 @@ Item.propTypes = {
 
 Item.contextTypes = {
   classStore: _propTypes2.default.object.isRequired,
-  LinkComponent: _propTypes2.default.oneOfType([_propTypes2.default.element, _propTypes2.default.func]).isRequired
+  LinkComponent: _propTypes2.default.oneOfType([_propTypes2.default.element, _propTypes2.default.func]).isRequired,
+  contextActions: _propTypes2.default.func
 };
 
 exports.default = Item;

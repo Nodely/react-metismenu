@@ -86,6 +86,21 @@
 .metismenu-link.has-active-child {
   color: #F53;
 }
+.metismenu-link .metismenu-context {
+  float: right;
+}
+.metismenu-link .metismenu-context button {
+  color: #FFF;
+  margin-right: 1px;
+  margin-top: 8px;
+  display: none;
+  float: left;
+  background: transparent;
+  height: 2em;
+}
+.metismenu-link:hover button {
+  display: block;
+}
 I.metismenu-icon {
   text-align: center;
   width: 3em;
