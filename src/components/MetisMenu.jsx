@@ -45,6 +45,7 @@ class MetisMenu extends React.Component {
     }
 
     this.LinkComponent = props.LinkComponent;
+    this.contextActions = props.contextActions;
 
     if (props.content) {
       this.updateContent(props.content);
@@ -95,6 +96,10 @@ class MetisMenu extends React.Component {
         { 'metismenu-state-icon': !props.noBuiltInClassNames },
         props.classNameStateIcon,
       ),
+      classContextActions: classnames(
+        { 'metismenu-context': !props.noBuiltInClassNames },
+        props.classNameContextActions,
+      ),
 
       iconNamePrefix: props.iconNamePrefix,
       iconNameStateHidden: props.iconNameStateHidden,
@@ -106,6 +111,7 @@ class MetisMenu extends React.Component {
     return {
       classStore: this.classStore,
       LinkComponent: this.LinkComponent,
+      contextActions: this.contextActions,
     };
   }
 
@@ -208,6 +214,7 @@ MetisMenu.defaultProps = {
   classNameLinkHasActiveChild: null,
   classNameIcon: null,
   classNameStateIcon: null,
+  classNameContextActions: null,
   iconNamePrefix: 'fa fa-',
   iconNameStateHidden: 'caret-left',
   iconNameStateVisible: 'caret-left rotate-minus-90',
@@ -218,6 +225,7 @@ MetisMenu.defaultProps = {
   onSelected: null,
   useExternalReduxStore: null,
   reduxStoreName: 'metisMenuStore',
+  contextActions: null,
 };
 
 MetisMenu.propTypes = {
@@ -248,6 +256,7 @@ MetisMenu.propTypes = {
   classNameLinkHasActiveChild: PropTypes.string,
   classNameIcon: PropTypes.string,
   classNameStateIcon: PropTypes.string,
+  classNameContextActions: PropTypes.string,
   iconNamePrefix: PropTypes.string,
   iconNameStateHidden: PropTypes.string,
   iconNameStateVisible: PropTypes.string,
@@ -263,6 +272,7 @@ MetisMenu.propTypes = {
   onSelected: PropTypes.func,
   useExternalReduxStore: PropTypes.object,
   reduxStoreName: PropTypes.string,
+  contextActions: PropTypes.func,
 };
 
 MetisMenu.childContextTypes = {
@@ -271,6 +281,7 @@ MetisMenu.childContextTypes = {
     PropTypes.element,
     PropTypes.func,
   ]).isRequired,
+  contextActions: PropTypes.func,
 };
 
 export default MetisMenu;

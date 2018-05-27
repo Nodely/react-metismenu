@@ -110,12 +110,34 @@
 
     background: @bg-active;
     color: #FFF;
+
   }
 
   &.has-active-child {
     color: @bg-active;
   }
+
+  .metismenu-context {
+    float: right;
+
+    button {
+      color: #FFF;
+      margin-right: 1px;
+      margin-top: 8px;
+      display: none;
+      float: left;
+      background: transparent;
+      height: 2em;
+    }
+  }
+
+  &:hover button {
+    display: block;
+  }
+
 }
+
+
 I.metismenu-icon {
   text-align: center;
   width: @icon-width;

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /**
  * src/components/Container.jsx
  * Author: H.Alper Tuna <halpertuna@gmail.com>
@@ -26,6 +27,7 @@ const Item = ({
 }, {
   classStore,
   LinkComponent,
+  contextActions,
 }) => (
   <li
     className={classnames(
@@ -51,16 +53,19 @@ const Item = ({
     >
       <i className={classnames(classStore.classIcon, classStore.iconNamePrefix + icon)} />
       {label}
-      {hasSubMenu && <i
-        className={classnames(
-          classStore.classStateIcon,
-          classStore.iconNamePrefix + (
-            subMenuVisibility
-              ? classStore.iconNameStateVisible
-              : classStore.iconNameStateHidden
-          ),
-        )}
-      />}
+      <span className={classStore.classContextActions}>
+        {contextActions && contextActions(hasSubMenu)}
+        {hasSubMenu && <i
+          className={classnames(
+            classStore.classStateIcon,
+            classStore.iconNamePrefix + (
+              subMenuVisibility
+                ? classStore.iconNameStateVisible
+                : classStore.iconNameStateHidden
+            ),
+          )}
+        />}
+      </span>
     </LinkComponent>
     {hasSubMenu && <Container
       itemId={id}
@@ -108,6 +113,7 @@ Item.contextTypes = {
     PropTypes.element,
     PropTypes.func,
   ]).isRequired,
+  contextActions: PropTypes.func,
 };
 
 export default Item;

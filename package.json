@@ -1,5 +1,5 @@
 {
-  "name": "react-metismenu",
+  "name": "nodely-metismenu",
   "version": "1.4.0",
   "description": "A ready / simple to use, highly customizable, updateable, ajax supported, animated and material designed menu component for React",
   "main": "lib/index.js",
@@ -32,7 +32,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alpertuna/react-metismenu.git"
+    "url": "git+https://github.com/Nodely/react-metismenu.git"
   },
   "keywords": [
     "react",
@@ -50,9 +50,9 @@
   "author": "H.Alper Tuna <halpertuna@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/alpertuna/react-metismenu/issues"
+    "url": "https://github.com/Nodely/react-metismenu/issues"
   },
-  "homepage": "https://github.com/alpertuna/react-metismenu#readme",
+  "homepage": "https://github.com/Nodely/react-metismenu#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-jest": "^21.2.0",

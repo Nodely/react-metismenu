@@ -162,11 +162,28 @@ class App extends React.Component {
       menu: menu1,
     };
   }
+
   render() {
+    const actions = (hasSubMenu) => {
+      if (hasSubMenu) {
+        return [
+          <button title="Create folder" key="cfl"><span className="fa fa-folder-o" /></button>,
+          <button title="Create file" key="cf"><span className="fa fa-file-o" /></button>,
+          <button title="Rename" key="rf"><span className="fa fa-edit" /></button>,
+          <button title="Delete" key="df"><span className="fa fa-times" /></button>,
+        ];
+      }
+      return [
+        <button title="Rename" key="rf"><span className="fa fa-edit" /></button>,
+        <button title="Delete" key="df"><span className="fa fa-times" /></button>,
+      ];
+    };
     return (
       <div>
         <MetisMenu
-          ref={(r) => { this.menu = r; }}
+          ref={(r) => {
+            this.menu = r;
+          }}
           activeLinkFromLocation
           activeLinkLabel={this.state.activeLinkLabel}
           activeLinkId={this.state.activeLinkId}
@@ -174,9 +191,10 @@ class App extends React.Component {
           className="menu"
           onSelected={(e) => {
             /* e.preventDefault();
-            console.log('onSelected', e);*/
+            console.log('onSelected', e); */
           }}
           content={this.state.menu}
+          contextActions={actions}
         />
 
         <div className="body">
@@ -246,8 +264,7 @@ class App extends React.Component {
               onClick={() => {
                 this.setState(this.state.menuToggle
                   ? { menuToggle: false, menu: menu1 }
-                  : { menuToggle: true, menu: menu2 },
-                );
+                  : { menuToggle: true, menu: menu2 },);
               }}
             >
               Toggle Content
