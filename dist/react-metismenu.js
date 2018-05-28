@@ -5034,6 +5034,7 @@ var Item = function Item(_ref, _ref2) {
       icon = _ref.icon,
       label = _ref.label,
       to = _ref.to,
+      path = _ref.path,
       externalLink = _ref.externalLink,
       hasSubMenu = _ref.hasSubMenu,
       active = _ref.active,
@@ -5072,7 +5073,7 @@ var Item = function Item(_ref, _ref2) {
       _react2.default.createElement(
         'span',
         { className: classStore.classContextActions },
-        contextActions && contextActions(hasSubMenu, to, id),
+        contextActions && contextActions(hasSubMenu, path),
         hasSubMenu && _react2.default.createElement('i', {
           className: (0, _classnames2.default)(classStore.classStateIcon, classStore.iconNamePrefix + (subMenuVisibility ? classStore.iconNameStateVisible : classStore.iconNameStateHidden))
         })
@@ -5417,6 +5418,7 @@ var flattenLevel = function flattenLevel(content, parentId) {
       icon: item.icon,
       label: item.label,
       to: item.to,
+      path: item.to,
       externalLink: item.externalLink,
       active: false,
       hasActiveChild: false,
