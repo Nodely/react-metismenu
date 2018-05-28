@@ -46,6 +46,7 @@ class MetisMenu extends React.Component {
 
     this.LinkComponent = props.LinkComponent;
     this.contextActions = props.contextActions;
+    this.renderItem = props.renderItem;
 
     if (props.content) {
       this.updateContent(props.content);
@@ -112,6 +113,7 @@ class MetisMenu extends React.Component {
       classStore: this.classStore,
       LinkComponent: this.LinkComponent,
       contextActions: this.contextActions,
+      renderItem: this.renderItem,
     };
   }
 
@@ -223,6 +225,7 @@ MetisMenu.defaultProps = {
   activeLinkLabel: null,
   activeLinkFromLocation: false,
   onSelected: null,
+  renderItem: null,
   useExternalReduxStore: null,
   reduxStoreName: 'metisMenuStore',
   contextActions: null,
@@ -270,6 +273,7 @@ MetisMenu.propTypes = {
   activeLinkFromLocation: PropTypes.bool,
 
   onSelected: PropTypes.func,
+  renderItem: PropTypes.func,
   useExternalReduxStore: PropTypes.object,
   reduxStoreName: PropTypes.string,
   contextActions: PropTypes.func,
@@ -282,6 +286,7 @@ MetisMenu.childContextTypes = {
     PropTypes.func,
   ]).isRequired,
   contextActions: PropTypes.func,
+  renderItem: PropTypes.func,
 };
 
 export default MetisMenu;

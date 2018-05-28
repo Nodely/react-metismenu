@@ -29,6 +29,7 @@ const Item = ({
   classStore,
   LinkComponent,
   contextActions,
+  renderItem,
 }) => (
   <li
     className={classnames(
@@ -53,7 +54,7 @@ const Item = ({
       activateMe={activateMe}
     >
       <i className={classnames(classStore.classIcon, classStore.iconNamePrefix + icon)} />
-      {label}
+      {renderItem ? renderItem(label) : label}
       <span className={classStore.classContextActions}>
         {contextActions && contextActions(hasSubMenu, path)}
         {hasSubMenu && <i
@@ -81,6 +82,7 @@ Item.defaultProps = {
   icon: '',
   label: '',
   to: null,
+  path: null,
   externalLink: false,
   toggleSubMenu: null,
 };
@@ -97,6 +99,7 @@ Item.propTypes = {
     PropTypes.string,
   ]),
   to: PropTypes.string,
+  path: PropTypes.string,
   externalLink: PropTypes.bool,
   hasSubMenu: PropTypes.bool.isRequired,
   active: PropTypes.bool.isRequired,
@@ -115,6 +118,7 @@ Item.contextTypes = {
     PropTypes.func,
   ]).isRequired,
   contextActions: PropTypes.func,
+  renderItem: PropTypes.func,
 };
 
 export default Item;
