@@ -178,7 +178,6 @@ class MetisMenu extends React.Component {
   }
 
   render() {
-    console.log(this.store.getState());
     const mainWrapper = (
       <div className={this.classStore.classMainWrapper}>
         <Container

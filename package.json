@@ -1,6 +1,6 @@
 {
   "name": "nodely-metismenu",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "A ready / simple to use, highly customizable, updateable, ajax supported, animated and material designed menu component for React",
   "main": "lib/index.js",
   "scripts": {
