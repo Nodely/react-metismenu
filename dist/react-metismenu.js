@@ -1918,6 +1918,7 @@ var MetisMenu = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      console.log(this);
       var mainWrapper = _react2.default.createElement(
         'div',
         { className: this.classStore.classMainWrapper },
