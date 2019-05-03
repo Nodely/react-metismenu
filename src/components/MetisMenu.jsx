@@ -174,12 +174,11 @@ class MetisMenu extends React.Component {
   }
 
   updateContent(content) {
-    console.log(this.store.getState());
     this.store.dispatch(updateContent(this.reduxUid, content));
-    console.log(this.store.getState());
   }
 
   render() {
+    console.log(this.store.getState());
     const mainWrapper = (
       <div className={this.classStore.classMainWrapper}>
         <Container
