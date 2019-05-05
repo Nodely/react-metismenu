@@ -179,12 +179,21 @@ class MetisMenu extends React.Component {
 
   render() {
     const mainWrapper = (
-      <div className={this.classStore.classMainWrapper}>
+      this.props.noRootContainer ? (
         <Container
           reduxStoreName={this.reduxStoreName}
           reduxUid={this.reduxUid}
+          noRootContainer
         />
-      </div>
+      ) : (
+        <div className={this.classStore.classMainWrapper}>
+          <Container
+            reduxStoreName={this.reduxStoreName}
+            reduxUid={this.reduxUid}
+            noRootContainer={this.props.noRootContainer}
+          />
+        </div>
+      )
     );
 
     if (this.useExternalReduxStore) {
@@ -229,6 +238,7 @@ MetisMenu.defaultProps = {
   useExternalReduxStore: null,
   reduxStoreName: 'metisMenuStore',
   contextActions: null,
+  noRootContainer: false,
 };
 
 MetisMenu.propTypes = {
@@ -277,6 +287,8 @@ MetisMenu.propTypes = {
   useExternalReduxStore: PropTypes.object,
   reduxStoreName: PropTypes.string,
   contextActions: PropTypes.func,
+
+  noRootContainer: PropTypes.bool,
 };
 
 MetisMenu.childContextTypes = {

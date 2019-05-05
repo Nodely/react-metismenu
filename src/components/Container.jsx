@@ -15,26 +15,34 @@ const Container = ({
   itemId,
   reduxStoreName,
   reduxUid,
+  noRootContainer,
 }, {
   classStore,
 }) => (
-  <ul
-    className={classnames(
-      typeof classStore.classContainer === 'function'
-        ? classStore.classContainer({ itemId, visible, items })
-        : classStore.classContainer,
-      visible && classStore.classContainerVisible,
-    )}
-  >
-    {items.map((item, i) => (
+  noRootContainer ? (
+    items.map((item, i) => (
       <Item key={item.id || `_${i}`} reduxStoreName={reduxStoreName} reduxUid={reduxUid} {...item} />
-    ))}
-  </ul>
+    ))
+  ) : (
+    <ul
+      className={classnames(
+        typeof classStore.classContainer === 'function'
+          ? classStore.classContainer({ itemId, visible, items })
+          : classStore.classContainer,
+        visible && classStore.classContainerVisible,
+      )}
+    >
+      {items.map((item, i) => (
+        <Item key={item.id || `_${i}`} reduxStoreName={reduxStoreName} reduxUid={reduxUid} {...item} />
+      ))}
+    </ul>
+  )
 );
 
 Container.defaultProps = {
   itemId: null,
   visible: false,
+  noRootContainer: false,
 };
 
 Container.propTypes = {
@@ -46,6 +54,7 @@ Container.propTypes = {
   visible: PropTypes.bool,
   reduxStoreName: PropTypes.string.isRequired,
   reduxUid: PropTypes.number.isRequired,
+  noRootContainer: PropTypes.bool,
 };
 
 Container.contextTypes = {
