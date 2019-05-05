@@ -60,7 +60,7 @@ const Item = ({
         {hasSubMenu && <i
           className={classnames(
             classStore.classStateIcon,
-            classStore.iconNamePrefix.replace(/ fa-/, '') + (
+            classStore.iconNamePrefix.replace(/fa-/, '') + (
               subMenuVisibility
                 ? classStore.iconNameStateVisible
                 : classStore.iconNameStateHidden

@@ -12780,7 +12780,7 @@ var Item = function Item(_ref, _ref2) {
         { className: classStore.classContextActions },
         contextActions && contextActions(hasSubMenu, path),
         hasSubMenu && _react2.default.createElement('i', {
-          className: (0, _classnames2.default)(classStore.classStateIcon, classStore.iconNamePrefix.replace(/ fa-/, '') + (subMenuVisibility ? classStore.iconNameStateVisible : classStore.iconNameStateHidden))
+          className: (0, _classnames2.default)(classStore.classStateIcon, classStore.iconNamePrefix.replace(/fa-/, '') + (subMenuVisibility ? classStore.iconNameStateVisible : classStore.iconNameStateHidden))
         })
       )
     ),
