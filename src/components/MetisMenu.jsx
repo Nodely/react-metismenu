@@ -190,7 +190,6 @@ class MetisMenu extends React.Component {
           <Container
             reduxStoreName={this.reduxStoreName}
             reduxUid={this.reduxUid}
-            noRootContainer={this.props.noRootContainer}
           />
         </div>
       )

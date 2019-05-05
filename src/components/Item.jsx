@@ -40,6 +40,7 @@ const Item = ({
     )}
   >
     <LinkComponent
+      className=""
       classNameActive={classStore.classLinkActive}
       classNameHasActiveChild={classStore.classLinkHasActiveChild}
       active={active}

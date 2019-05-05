@@ -2440,8 +2440,7 @@ var MetisMenu = function (_React$Component) {
         { className: this.classStore.classMainWrapper },
         _react2.default.createElement(_Container2.default, {
           reduxStoreName: this.reduxStoreName,
-          reduxUid: this.reduxUid,
-          noRootContainer: this.props.noRootContainer
+          reduxUid: this.reduxUid
         })
       );
 
@@ -12755,6 +12754,7 @@ var Item = function Item(_ref, _ref2) {
     _react2.default.createElement(
       LinkComponent,
       {
+        className: '',
         classNameActive: classStore.classLinkActive,
         classNameHasActiveChild: classStore.classLinkHasActiveChild,
         active: active,
