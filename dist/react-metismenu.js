@@ -2347,6 +2347,7 @@ var MetisMenu = function (_React$Component) {
       classIcon: (0, _classnames2.default)({ 'metismenu-icon': !props.noBuiltInClassNames }, props.classNameIcon),
       classStateIcon: (0, _classnames2.default)({ 'metismenu-state-icon': !props.noBuiltInClassNames }, props.classNameStateIcon),
       classContextActions: (0, _classnames2.default)({ 'metismenu-context': !props.noBuiltInClassNames }, props.classNameContextActions),
+      classContainerCollapsable: 'collapse',
 
       iconNamePrefix: props.iconNamePrefix,
       iconNameStateHidden: props.iconNameStateHidden,
@@ -2477,9 +2478,9 @@ MetisMenu.defaultProps = {
   classNameIcon: null,
   classNameStateIcon: null,
   classNameContextActions: null,
-  iconNamePrefix: 'fa fa-',
-  iconNameStateHidden: 'caret-left',
-  iconNameStateVisible: 'caret-left rotate-minus-90',
+  iconNamePrefix: 'fa ',
+  iconNameStateHidden: 'arrow',
+  iconNameStateVisible: 'arrow',
   activeLinkId: null,
   activeLinkTo: null,
   activeLinkLabel: null,
@@ -12614,7 +12615,7 @@ var Container = function Container(_ref, _ref2) {
   }) : _react2.default.createElement(
     'ul',
     {
-      className: (0, _classnames2.default)(typeof classStore.classContainer === 'function' ? classStore.classContainer({ itemId: itemId, visible: visible, items: items }) : classStore.classContainer, visible && classStore.classContainerVisible)
+      className: (0, _classnames2.default)(typeof classStore.classContainer === 'function' ? classStore.classContainer({ itemId: itemId, visible: visible, items: items }) : classStore.classContainer, classStore.classContainerCollapsable, visible && classStore.classContainerVisible)
     },
     items.map(function (item, i) {
       return _react2.default.createElement(_Item2.default, _extends({ key: item.id || '_' + i, reduxStoreName: reduxStoreName, reduxUid: reduxUid }, item));

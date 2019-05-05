@@ -29,6 +29,7 @@ const Container = ({
         typeof classStore.classContainer === 'function'
           ? classStore.classContainer({ itemId, visible, items })
           : classStore.classContainer,
+        classStore.classContainerCollapsable,
         visible && classStore.classContainerVisible,
       )}
     >
