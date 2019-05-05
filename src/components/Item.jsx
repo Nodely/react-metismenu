@@ -52,6 +52,7 @@ const Item = ({
       hasSubMenu={hasSubMenu}
       toggleSubMenu={toggleSubMenu}
       activateMe={activateMe}
+      aria-expanded={hasSubMenu ? subMenuVisibility : null}
     >
       <i className={classnames(classStore.classIcon, classStore.iconNamePrefix + icon)} />
       {renderItem ? renderItem(label) : <span className={classnames(classStore.classLink)}>{label}</span>}
