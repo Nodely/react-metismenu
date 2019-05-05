@@ -52,23 +52,25 @@ const Item = ({
       hasSubMenu={hasSubMenu}
       toggleSubMenu={toggleSubMenu}
       activateMe={activateMe}
-      aria-expanded={hasSubMenu ? subMenuVisibility : null}
+      ariaExpanded={hasSubMenu ? subMenuVisibility : null}
     >
       <i className={classnames(classStore.classIcon, classStore.iconNamePrefix + icon)} />
       {renderItem ? renderItem(label) : <span className={classnames(classStore.classLink)}>{label}</span>}
-      <span className={classStore.classContextActions}>
-        {contextActions && contextActions(hasSubMenu, path)}
-        {hasSubMenu && <i
-          className={classnames(
-            classStore.classStateIcon,
-            classStore.iconNamePrefix.replace(/fa-/, '') + (
-              subMenuVisibility
-                ? classStore.iconNameStateVisible
-                : classStore.iconNameStateHidden
-            ),
-          )}
-        />}
-      </span>
+      {contextActions && (
+        <span className={classStore.classContextActions}>
+          {contextActions && contextActions(hasSubMenu, path)}
+        </span>
+      )}
+      {hasSubMenu && <span
+        className={classnames(
+          classStore.classStateIcon,
+          classStore.iconNamePrefix.replace(/fa-/, '') + (
+            subMenuVisibility
+              ? classStore.iconNameStateVisible
+              : classStore.iconNameStateHidden
+          ),
+        )}
+      />}
     </LinkComponent>
     {hasSubMenu && <Container
       itemId={id}

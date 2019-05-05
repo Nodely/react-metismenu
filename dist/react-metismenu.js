@@ -12768,7 +12768,7 @@ var Item = function Item(_ref, _ref2) {
         hasSubMenu: hasSubMenu,
         toggleSubMenu: toggleSubMenu,
         activateMe: activateMe,
-        'aria-expanded': hasSubMenu ? subMenuVisibility : null
+        ariaExpanded: hasSubMenu ? subMenuVisibility : null
       },
       _react2.default.createElement('i', { className: (0, _classnames2.default)(classStore.classIcon, classStore.iconNamePrefix + icon) }),
       renderItem ? renderItem(label) : _react2.default.createElement(
@@ -12776,14 +12776,14 @@ var Item = function Item(_ref, _ref2) {
         { className: (0, _classnames2.default)(classStore.classLink) },
         label
       ),
-      _react2.default.createElement(
+      contextActions && _react2.default.createElement(
         'span',
         { className: classStore.classContextActions },
-        contextActions && contextActions(hasSubMenu, path),
-        hasSubMenu && _react2.default.createElement('i', {
-          className: (0, _classnames2.default)(classStore.classStateIcon, classStore.iconNamePrefix.replace(/fa-/, '') + (subMenuVisibility ? classStore.iconNameStateVisible : classStore.iconNameStateHidden))
-        })
-      )
+        contextActions && contextActions(hasSubMenu, path)
+      ),
+      hasSubMenu && _react2.default.createElement('span', {
+        className: (0, _classnames2.default)(classStore.classStateIcon, classStore.iconNamePrefix.replace(/fa-/, '') + (subMenuVisibility ? classStore.iconNameStateVisible : classStore.iconNameStateHidden))
+      })
     ),
     hasSubMenu && _react2.default.createElement(_Container2.default, {
       itemId: id,
