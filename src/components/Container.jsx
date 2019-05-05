@@ -32,6 +32,7 @@ const Container = ({
         classStore.classContainerCollapsable,
         visible && classStore.classContainerVisible,
       )}
+      aria-expanded={visible}
     >
       {items.map((item, i) => (
         <Item key={item.id || `_${i}`} reduxStoreName={reduxStoreName} reduxUid={reduxUid} {...item} />

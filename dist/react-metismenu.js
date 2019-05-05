@@ -2478,7 +2478,7 @@ MetisMenu.defaultProps = {
   classNameIcon: null,
   classNameStateIcon: null,
   classNameContextActions: null,
-  iconNamePrefix: 'fa ',
+  iconNamePrefix: 'fa fa-',
   iconNameStateHidden: 'arrow',
   iconNameStateVisible: 'arrow',
   activeLinkId: null,
@@ -12615,7 +12615,8 @@ var Container = function Container(_ref, _ref2) {
   }) : _react2.default.createElement(
     'ul',
     {
-      className: (0, _classnames2.default)(typeof classStore.classContainer === 'function' ? classStore.classContainer({ itemId: itemId, visible: visible, items: items }) : classStore.classContainer, classStore.classContainerCollapsable, visible && classStore.classContainerVisible)
+      className: (0, _classnames2.default)(typeof classStore.classContainer === 'function' ? classStore.classContainer({ itemId: itemId, visible: visible, items: items }) : classStore.classContainer, classStore.classContainerCollapsable, visible && classStore.classContainerVisible),
+      'aria-expanded': visible
     },
     items.map(function (item, i) {
       return _react2.default.createElement(_Item2.default, _extends({ key: item.id || '_' + i, reduxStoreName: reduxStoreName, reduxUid: reduxUid }, item));
@@ -12779,7 +12780,7 @@ var Item = function Item(_ref, _ref2) {
         { className: classStore.classContextActions },
         contextActions && contextActions(hasSubMenu, path),
         hasSubMenu && _react2.default.createElement('i', {
-          className: (0, _classnames2.default)(classStore.classStateIcon, classStore.iconNamePrefix + (subMenuVisibility ? classStore.iconNameStateVisible : classStore.iconNameStateHidden))
+          className: (0, _classnames2.default)(classStore.classStateIcon, classStore.iconNamePrefix.replace(/ fa-/, '') + (subMenuVisibility ? classStore.iconNameStateVisible : classStore.iconNameStateHidden))
         })
       )
     ),

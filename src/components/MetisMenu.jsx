@@ -226,7 +226,7 @@ MetisMenu.defaultProps = {
   classNameIcon: null,
   classNameStateIcon: null,
   classNameContextActions: null,
-  iconNamePrefix: 'fa ',
+  iconNamePrefix: 'fa fa-',
   iconNameStateHidden: 'arrow',
   iconNameStateVisible: 'arrow',
   activeLinkId: null,
