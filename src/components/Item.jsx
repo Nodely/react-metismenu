@@ -40,7 +40,6 @@ const Item = ({
     )}
   >
     <LinkComponent
-      className={classStore.classLink}
       classNameActive={classStore.classLinkActive}
       classNameHasActiveChild={classStore.classLinkHasActiveChild}
       active={active}
@@ -54,7 +53,7 @@ const Item = ({
       activateMe={activateMe}
     >
       <i className={classnames(classStore.classIcon, classStore.iconNamePrefix + icon)} />
-      {renderItem ? renderItem(label) : label}
+      {renderItem ? renderItem(label) : <span className={classnames(classStore.classLink)}>{label}</span>}
       <span className={classStore.classContextActions}>
         {contextActions && contextActions(hasSubMenu, path)}
         {hasSubMenu && <i
