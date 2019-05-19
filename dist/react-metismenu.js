@@ -12771,7 +12771,7 @@ var Item = function Item(_ref, _ref2) {
         activateMe: activateMe,
         ariaExpanded: hasSubMenu ? subMenuVisibility : null
       },
-      _react2.default.createElement('i', { className: (0, _classnames2.default)(classStore.classIcon, classStore.iconNamePrefix + icon) }),
+      icon && _react2.default.createElement('i', { className: (0, _classnames2.default)(classStore.classIcon, classStore.iconNamePrefix + icon) }),
       renderItem ? renderItem(label) : _react2.default.createElement(
         'span',
         { className: (0, _classnames2.default)(classStore.classLink) },

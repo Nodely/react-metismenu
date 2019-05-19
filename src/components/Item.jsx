@@ -54,7 +54,7 @@ const Item = ({
       activateMe={activateMe}
       ariaExpanded={hasSubMenu ? subMenuVisibility : null}
     >
-      <i className={classnames(classStore.classIcon, classStore.iconNamePrefix + icon)} />
+      {icon && <i className={classnames(classStore.classIcon, classStore.iconNamePrefix + icon)} />}
       {renderItem ? renderItem(label) : <span className={classnames(classStore.classLink)}>{label}</span>}
       {contextActions && (
         <span className={classStore.classContextActions}>
