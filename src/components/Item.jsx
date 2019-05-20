@@ -101,7 +101,10 @@ Item.propTypes = {
     PropTypes.array,
     PropTypes.string,
   ]),
-  to: PropTypes.string,
+  to: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+  ]),
   path: PropTypes.string,
   externalLink: PropTypes.bool,
   hasSubMenu: PropTypes.bool.isRequired,
