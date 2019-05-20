@@ -105,7 +105,10 @@ Item.propTypes = {
     PropTypes.string,
     PropTypes.object,
   ]),
-  path: PropTypes.string,
+  path: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+  ]),
   externalLink: PropTypes.bool,
   hasSubMenu: PropTypes.bool.isRequired,
   active: PropTypes.bool.isRequired,

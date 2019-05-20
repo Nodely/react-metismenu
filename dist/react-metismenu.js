@@ -12809,7 +12809,7 @@ Item.propTypes = {
   icon: _propTypes2.default.string,
   label: _propTypes2.default.oneOfType([_propTypes2.default.element, _propTypes2.default.array, _propTypes2.default.string]),
   to: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.object]),
-  path: _propTypes2.default.string,
+  path: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.object]),
   externalLink: _propTypes2.default.bool,
   hasSubMenu: _propTypes2.default.bool.isRequired,
   active: _propTypes2.default.bool.isRequired,
